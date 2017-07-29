@@ -17,18 +17,31 @@
 import webapp2
 import jinja2
 import os
+from google.appengine.ext import ndb
 
 template_env = jinja2.Environment(loader=jinja2.FileSystemLoader(os.getcwd()))
 
+class PostModel(ndb.Model):
+    n_content = ndb.TextProperty(required=True,default="")
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+        results = PostModel.query().fetch()
+        
+        context = {
+            'results' : results
+        }
 
         index_template = template_env.get_template('v/index.html')
 
-        index_html = index_template.render()
+        index_html = index_template.render(context)
 
         self.response.write(index_html)
 
+    def post(self):
+        PostModel(n_content=self.request.get('content')).put()
+
+        self.redirect('/')
 
         
 
