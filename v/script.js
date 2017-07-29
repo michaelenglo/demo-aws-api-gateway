@@ -14,9 +14,14 @@ $(function () {
 		});
 	
 		posting.done(function(data) {
+			var pScore = ((data.score + 1)/2).toFixed(2);
+			var nScore = (1 - pScore).toFixed(2);
+			var neuScore = data.magnitude.toFixed(2);
+
 			$('#analyzeEmotion' + index).remove();
-			$('#emotionColumn' + index).append('<strong><p style="color : green;"> Positivity:' + ((data.score + 1)*100/2)  + '</p></strong>');
-			$('#emotionColumn' + index).append('<strong><p style="color : red;"> Negativity:' + (100 - (data.score + 1)*100/2) + '</p></strong>');
+			$('#emotionColumn' + index).append('<strong><p style="color : green;"> Positivity:' + pScore+ '</p></strong>');
+			$('#emotionColumn' + index).append('<strong><p style="color : red;"> Negativity:' + nScore + '</p></strong>');
+			$('#emotionColumn' + index).append('<strong><p style="color : grey;"> Neutrality:' + neuScore + '</p></strong>');
 		});
 	});
 });
