@@ -1,5 +1,5 @@
-var SENTIMENT_URL = 'http://demoawsapigatewaysa-dot-michaelenglo01.appspot.com';
-var EMOJI_URL = 'http://demoawsapigatewayemoji-dot-michaelenglo01.appspot.com';
+var SENTIMENT_URL = 'https://demoawsapigatewaysa-dot-michaelenglo01.appspot.com';
+var EMOJI_URL = 'https://demoawsapigatewayemoji-dot-michaelenglo01.appspot.com';
 
 $(function () {
 	$('.analyzeEmotion').on('click', function() {
