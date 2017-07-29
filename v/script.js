@@ -14,7 +14,8 @@ $(function () {
 	
 		posting.done(function(data) {
 			$('#analyzeEmotion' + index).remove();
-			$('#emotionColumn' + index).append("<strong> Score: " + data.score + "</strong>");
+			$('#emotionColumn' + index).append('<strong><p style="color : green;"> Positivity:' + ((data.score + 1)*100/2)  + '</p></strong>');
+			$('#emotionColumn' + index).append('<strong><p style="color : red;"> Negativity:' + (100 - (data.score + 1)*100/2) + '</p></strong>');
 		});
 	});
 });
