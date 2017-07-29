@@ -4,7 +4,8 @@ $(function () {
 	$('.analyzeEmotion').on('click', function() {
 		var index = parseInt($(this).attr('id').replace("analyzeEmotion",""));
 		
-		var content =  $("#postContent" + index).text();
+		var content =  $("#postContent" + index).text().trim();
+		alert(content);
 		console.log("sending content to: " + EMOTION_URL +
 					"\nwith parameter : " + content
 			);
