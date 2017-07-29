@@ -43,39 +43,24 @@
 			<br>
 			<br>
 
-			<div class="panel panel-default postPanel" id="postPanel1">
+			{% for result in results %}
+			<div class="panel panel-default postPanel" id="postPanel{{loop.index}}">
 				<div class="panel-header"></div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-xs-2" class="emotionColumn" id="emotionColumn1">
-							<button class="btn btn-block btn-primary analyzeEmotion" id="analyzeEmotion1">Analyze <br> emotion</button>
+						<div class="col-xs-2" class="emotionColumn" id="emotionColumn{{loop.index}}">
+							<button class="btn btn-block btn-primary analyzeEmotion" id="analyzeEmotion{{loop.index}}">Analyze <br> emotion</button>
 						</div>
 						<div class="col-xs-10">
 							<p><strong>Someone Said:</strong></p>
-							<p class="postContent" id="postContent1">
-								I love you so much. I am happy we can meet.
+							<p class="postContent" id="postContent{{loop.index}}">
+								{{result.n_content}}
 							</p>
 						</div>
 					</div>
 				</div>
 			</div>
-
-			<div class="panel panel-default postPanel" id="postPanel2">
-				<div class="panel-header"></div>
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-xs-2" class="emotionColumn" id="emotionColumn2">
-							<button class="btn btn-block btn-primary analyzeEmotion" id="analyzeEmotion2">Analyze <br> emotion</button>
-						</div>
-						<div class="col-xs-10">
-							<p><strong>Someone Said:</strong></p>
-							<p class="postContent" id="postContent2">
-								I hate you so much. I don't like that we meet.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			{% endfor %}
 
 		</div>
 	</body>
